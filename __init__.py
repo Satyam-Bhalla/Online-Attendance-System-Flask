@@ -9,12 +9,13 @@ from plotly.graph_objs import Scatter
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8424276c875d016a'
-client = MongoClient("mongodb://****************************")
+client = MongoClient("mongodb://********************************")
 db = client['online_attendence']
 
 time = datetime.date.today()
 tname = ''
 sname = ''
+d=[]
 
 @app.route('/', methods=['POST','GET'])
 def this():
@@ -28,6 +29,7 @@ def this():
 		return redirect(url_for('login'))
 
 	return render_template('signup.html')
+
 
 @app.route('/login/', methods=['POST','GET'])
 def login():
@@ -136,17 +138,34 @@ def date(tname):
 	if session['username']:
 		new = db[tname]
 		search = new.find()
-		l=[]
 		if request.method == 'POST':
 			for document in search:
 				if request.form['date'] == document['date']:
-					l.append(document)
-			return render_template('date.html', search=search, l=l, tname=tname)
+					d.append(document)
+			return redirect(url_for('h', tname=tname))
 
-		return render_template('date.html', search=search, l=l, tname=tname)
+		return render_template('date.html', search=search, d=d, tname=tname)
 
 	return redirect(url_for('login'))
 
+@app.route('/<tname>/student', methods=['POST','GET'])
+def h(tname):
+	user = db[tname]
+	if request.method == 'POST':
+		search = user.find()
+		var = d[0]['date']
+		for document in search:
+			if document['date'] == var:
+				if request.form[str(document['_id'])] == 'Present':
+					find = user.find_one({'student':document['student']})
+					find['present'] = 'Present'
+					user.save(find)
+				elif request.form[str(document['_id'])] == 'Absent':
+					find = user.find_one({'student':document['student']})
+					find['present'] = 'Absent'
+					user.save(find)
+
+	return render_template('update.html', d=d)
 
 @app.route('/logout/')
 def logout():

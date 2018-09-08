@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block body %}
+<form action="" method="post">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Student-Name</th>
+      <th scope="col">Present</th>
+      <th scope="col">Absent</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for items in d %}
+    <tr>
+      <td>{{items['student']}}</td>
+      <td><input type="radio" name="{{items['_id']}}" value="Present">       </td>
+      <td><input type="radio" name="{{items['_id']}}" value="Absent" checked></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<button type="submit" class="btn btn-primary">Update</button>
+</form>
+{% endblock %}

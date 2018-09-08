@@ -5,24 +5,6 @@
 <div style="    margin-right: 256px;
     margin-left: -163px;">     
 <form action="" method="post">
-         <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Student-Name</th>
-      <th scope="col">Present</th>
-      <th scope="col">Absent</th>
-    </tr>
-  </thead>
-  <tbody>
-   {% for items in l %}
-    <tr>
-      <td>{{items['student']}}</td>
-      <td><input type="radio" name="{{items['_id']}}" value="Present">       </td>
-      <td><input type="radio" name="{{items['_id']}}" value="Absent" checked></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
    <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Date</span>
