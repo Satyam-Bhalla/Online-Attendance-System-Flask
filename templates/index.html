@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+ 
+{% block body %}
+<div class="container" style="margin-left: -200px">
+    <a class="btn btn-outline-success" style="margin-left: 265px;" href="{{ url_for('add', tname=tname)}}">Add New Students</a><br><br>
+<a class="btn btn-outline-success" style="margin-left: 278px;" href="{{ url_for('date', tname=tname)}}">Update Record</a>
+</div>
+<br>
+<div style="    margin-right: 256px;
+    margin-left: -163px;">     
+<form action="" method="post">
+         <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Student-Name</th>
+      <th scope="col">Present</th>
+      <th scope="col">Absent</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for document in search %}
+    <tr>
+      <td>{{document['student']}}</td>
+      <td><input type="radio" name="{{document['_id']}}" value="Present"></td>
+      <td><input type="radio" name="{{document['_id']}}" value="Absent" checked></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    <input style="margin-left: 284px;" class="btn btn-primary" type="submit" name="submit">
+    </form>
+    <div class="alert alert-danger" role="alert">
+  {{msg}}
+</div>
+</div>
+    
+{% endblock %}

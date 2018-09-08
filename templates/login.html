@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online-Attendance Login</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+
+<body style="background-color: rgb(210, 218, 226);">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Online Attendance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="date.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container" style="padding-top: 20px;
+    padding-bottom: 20px; padding-left: 390px; ">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="username">Username</label><br>
+                <input class="form-control" type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label><br>
+                <input class="form-control" type="password" id="password" name="password">
+            </div>
+
+            <div style="padding-left: 100px;">
+                <input type="radio" name="choice" value="teacher" checked>Teacher<br><br>
+                <input type="radio" name="choice" value="student">Student
+            </div>
+            <br>
+            <input style="margin-left: 70px;    padding-left: 50px;
+                padding-right: 50px;" type="submit" class="btn btn-primary" value="Login">
+        </form>
+        <span>{{msg}}</span>
+    </div>
+
+
+</body>
+
+</html>

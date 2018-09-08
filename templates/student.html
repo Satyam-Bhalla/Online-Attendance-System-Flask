@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+   
+   {% block body %}
+    <div class="container" style="margin-left: -180px;">
+        <table class="table table-striped">
+       <tr>
+            <th>Date</th>
+            <th>Present</th>
+        </tr>
+        {% for thanos in l %}
+        <tr>
+            <td>{{thanos['date']}}</td>
+            <td>{{thanos['present']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="container" style="margin-left: -182px; text-align: center;">
+        <span><h2>Total Lectures Attended</h2></span>
+    <span><h3>{{attend}}/{{total}}</h3></span>
+    </div>
+    
+    <div class="container" style="margin-left: -185px;">
+        {{ div_placeholder }}
+    </div>
+{% endblock %}

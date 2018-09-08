@@ -1,0 +1,52 @@
+#home{
+	background-color: white;
+    color: black;
+    border: 2px solid #b4d9eb;
+    padding: 5.5px 13px;
+    font-size: 19px;
+    border-radius: 30px;
+
+}
+#home:hover{
+	background-color: #54a9d1;
+    color: white;
+}
+
+body{
+	background-image: url("1.jpg");
+}
+
+.navbar navbar-light{
+    background-color: #5aacd2;
+}
+
+
+.btn_btn{
+	    background-color: white;
+    color: black;
+    border: 2px solid #b4d9eb;
+    padding: 5.5px 18px;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+.btn_btn:hover{
+	background-color: #54a9d1;
+    color: white;
+}
+.submit{
+    background-color: white;
+    color: black;
+    border: 2px solid #56a9d1;
+    padding: 11px 20px;
+    font-size: 17px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.submit:hover{
+    background-color: #a7d4e9;
+    color: white;
+}
+
+
+
